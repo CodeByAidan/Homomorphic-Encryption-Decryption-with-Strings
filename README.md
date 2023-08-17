@@ -1,6 +1,6 @@
 # Homomorphic-Encryption-Decryption-with-Strings
 
-This repository contains an [updated version of the original code](https://github.com/bit-ml/he-scheme) by Madalina Bolboceanu ([@mbolboceanu](https://github.com/mbolboceanu)).
+This repository contains an [updated version of the original code](https://github.com/bit-ml/he-scheme) by Mădălina Bolboceanu ([@mbolboceanu](https://github.com/mbolboceanu)), Miruna Roșca ([@MirunaRosca](https://github.com/MirunaRosca)), and Radu Țițiu ([@rtitiu](https://github.com/rtitiu)).
 
 ## Overview
 

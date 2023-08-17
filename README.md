@@ -37,5 +37,5 @@ The script demonstrates encryption, decryption, and operations on encrypted data
 
 ## Additional Resources
 
-For a deeper understanding of the concepts and techniques used in this code, you can refer to the associated research paper: [Paper.pdf](Paper.pdf).
+For a deeper understanding of the concepts and techniques used in this code, you can refer to the associated research paper: [Paper.pdf](Paper.pdf) as well as the original blogpost about this: https://bit-ml.github.io/blog/post/homomorphic-encryption-toy-implementation-in-python/
 

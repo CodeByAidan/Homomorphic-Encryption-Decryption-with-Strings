@@ -1,20 +1,42 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{listings}
+\usepackage{hyperref}
 \usepackage{url}
- 
-\begin{document}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
 
 \title{RLWE Homomorphic Encryption Scheme}
-\author{Aidan (@CodeByAidan) | Madalina Bolboceanu (@mbolboceanu)}
-\date{8/16/2023}
+\author{
+  Aidan (\href{https://github.com}{@CodeByAidan}) \\
+  Mădălina Bolboceanu (\href{https://github.com/mbolboceanu}{@mbolboceanu}) \\
+  Miruna Roșca (\href{https://github.com/MirunaRosca}{@MirunaRosca}) \\
+  Radu Țițiu (\href{https://github.com/rtitiu}{@rtitiu})
+}
+\date{\today}
+
+\begin{document}
 \maketitle
 
 \section{Introduction}
 
 This document provides a mathematical explanation of the RLWE (Ring Learning With Errors) homomorphic encryption scheme. The provided Python code demonstrates key generation, encryption, and various operations on encrypted data.
 
-See more: \url{https://eprint.iacr.org/2012/144.pdf}
+See more: 
+
+\begin{itemize}
+    \item \href{https://eprint.iacr.org/2012/144.pdf}{"Somewhat Practical Fully Homomorphic"}, 
+    \item \href{https://bit-ml.github.io/blog/post/homomorphic-encryption-toy-implementation-in-python/}{"Homomorphic Encryption: a Toy Implementation in Python"}
+\end{itemize}
 
 \section{RLWE Encryption Parameters}
 
@@ -120,9 +142,11 @@ The RLWE homomorphic encryption scheme provides a powerful tool for performing c
 
 \section{Python Code}
 
-Thank you to the author of the original code:
+Thank you to the authors of the original code:
 \begin{itemize}
-    \item Madalina Bolboceanu (\url{https://github.com/mbolboceanu})
+    \item Mădălina Bolboceanu (\url{https://github.com/mbolboceanu})
+    \item Miruna Roșca (\url{https://github.com/MirunaRosca})
+    \item Radu Țițiu (\url{https://github.com/rtitiu})
 \end{itemize}
 
 This code is an updated version of the original code, which can be found here:

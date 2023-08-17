@@ -1,0 +1,163 @@
+\hypertarget{rlwe-homomorphic-encryption-scheme}{%
+\section{RLWE Homomorphic Encryption
+Scheme}\label{rlwe-homomorphic-encryption-scheme}}
+
+This document provides a mathematical explanation of the RLWE (Ring
+Learning With Errors) homomorphic encryption scheme. The provided Python
+code demonstrates key generation, encryption, and various operations on
+encrypted data.
+
+\hypertarget{rlwe-encryption-parameters}{%
+\subsection{RLWE Encryption
+Parameters}\label{rlwe-encryption-parameters}}
+
+The RLWE encryption scheme operates in a polynomial ring modulo a
+polynomial modulus ( poly\_mod ). The ciphertext modulus is denoted as (
+q ), and the plaintext modulus is denoted as ( t ). The encryption
+scheme uses a base ( T ) for polynomial switching and a modulus ( p )
+for modulus switching.
+
+\hypertarget{parameters}{%
+\subsubsection{Parameters}\label{parameters}}
+
+The following parameters are defined:
+
+\begin{itemize}
+\tightlist
+\item
+  ( n ): Polynomial modulus degree
+\item
+  ( q ): Ciphertext modulus
+\item
+  ( t ): Plaintext modulus
+\item
+  ( T ): Base for polynomial switching
+\item
+  ( p ): Modulus for modulus switching
+\end{itemize}
+
+\hypertarget{key-generation}{%
+\subsection{Key Generation}\label{key-generation}}
+
+The key generation process involves generating a public key ( (a, b) )
+and a secret key ( s ). The public key is used for encryption, and the
+secret key is used for decryption.
+
+\hypertarget{generating-secret-and-public-keys}{%
+\subsubsection{Generating Secret and Public
+Keys}\label{generating-secret-and-public-keys}}
+
+The secret key ( s ) is a binary polynomial. The public key is generated
+as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  ( s ): Binary secret key polynomial
+\item
+  ( a ): Uniformly random polynomial
+\item
+  ( e ): Error polynomial sampled from a normal distribution
+\item
+  ( b ): ( \(a \cdot s - e \mod q\) )
+\end{itemize}
+
+\hypertarget{encryption}{%
+\subsection{Encryption}\label{encryption}}
+
+To encrypt a plaintext message ( m ) using the public key ( (a, b) ),
+the following steps are performed:
+
+\[
+\begin{align*}
+m &\equiv m \mod t \\
+\text{delta} &= \frac{q}{t} \\
+e1, e2 &= \text{Error polynomials sampled from a normal distribution} \\
+u &= \text{Binary polynomial} \\
+\text{ct} &\equiv (ct_0, ct_1) \\
+ct_0 &= a \cdot u + e1 + \delta \cdot m \mod q \\
+ct_1 &= b \cdot u + e2 \mod q \\
+\end{align*}
+\]
+
+\hypertarget{homomorphic-operations}{%
+\subsection{Homomorphic Operations}\label{homomorphic-operations}}
+
+The RLWE encryption scheme supports various homomorphic operations, such
+as addition and multiplication, on encrypted data.
+
+\hypertarget{addition-of-ciphertext-and-plaintext}{%
+\subsubsection{Addition of Ciphertext and
+Plaintext}\label{addition-of-ciphertext-and-plaintext}}
+
+To add a ciphertext ( ct ) and a plaintext ( pt ), the following
+operation is performed:
+
+\[
+\begin{align*}
+m &\equiv \text{pt} \mod t \\
+\text{delta} &= \frac{q}{t} \\
+e1 &= \text{Error polynomial} \\
+\text{scaled\_m} &= \delta \cdot m \mod q \\
+\text{new\_ct} &\equiv (\text{new\_ct\_0}, \text{ct\_1}) \\
+\text{new\_ct\_0} &= ct_0 + \text{scaled\_m} \mod q \\
+\end{align*}
+\]
+
+\hypertarget{addition-of-ciphertexts}{%
+\subsubsection{Addition of Ciphertexts}\label{addition-of-ciphertexts}}
+
+To add two ciphertexts ( ct1 ) and ( ct2 ), the following operation is
+performed:
+
+\[
+\begin{align*}
+\text{new\_ct} &\equiv (\text{new\_ct\_0}, \text{new\_ct\_1}) \\
+\text{new\_ct\_0} &= ct1_0 + ct2_0 \mod q \\
+\text{new\_ct\_1} &= ct1_1 + ct2_1 \mod q \\
+\end{align*}
+\]
+
+\hypertarget{multiplication-of-ciphertext-and-plaintext}{%
+\subsubsection{Multiplication of Ciphertext and
+Plaintext}\label{multiplication-of-ciphertext-and-plaintext}}
+
+To multiply a ciphertext ( ct ) by a plaintext ( pt ), the following
+operation is performed:
+
+\[
+\begin{align*}
+\text{scaled\_m} &= \delta \cdot m \mod q \\
+\text{new\_ct} &\equiv (\text{new\_ct\_0}, \text{new\_ct\_1}) \\
+\text{new\_ct\_0} &= ct_0 \cdot \text{scaled\_m} \mod q \\
+\text{new\_ct\_1} &= ct_1 \cdot \text{scaled\_m} \mod q \\
+\end{align*}
+\]
+
+\hypertarget{multiplication-of-ciphertexts}{%
+\subsubsection{Multiplication of
+Ciphertexts}\label{multiplication-of-ciphertexts}}
+
+The multiplication of ciphertexts involves more complex steps and
+relinearization keys. The provided Python code demonstrates two versions
+of multiplication: version 1 and version 2.
+
+\hypertarget{decryption}{%
+\subsection{Decryption}\label{decryption}}
+
+To decrypt a ciphertext and obtain the original plaintext message, the
+following steps are performed:
+
+\[
+\begin{align*}
+\text{scaled\_pt} &= ct_1 \cdot sk + ct_0 \mod q \\
+\text{decrypted\_poly} &= \left\lfloor \frac{t \cdot \text{scaled\_pt}}{q} \right\rceil \mod t \\
+\text{Decrypted Plaintext} &= \text{decrypted\_poly}
+\end{align*}
+\]
+
+The RLWE homomorphic encryption scheme provides a powerful tool for
+performing computations on encrypted data while preserving data privacy.
+The scheme involves key generation, encryption, and various homomorphic
+operations, making it suitable for secure computations in various
+applications.

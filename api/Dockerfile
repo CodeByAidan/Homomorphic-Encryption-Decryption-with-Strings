@@ -12,7 +12,7 @@ COPY . /app/
 COPY log /app/log
 COPY startup.sh /app/startup.sh
 
-# Install any needed packages specified in requirements.txt
+# Install numpy
 RUN pip install --no-cache-dir numpy
 
 # Grant execution permission to the startup script

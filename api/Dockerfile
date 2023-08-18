@@ -2,7 +2,7 @@
 # Run: docker run homomorphic-encryption-api:latest
 
 # Use an official Python runtime as a parent image
-FROM python:3.8
+FROM python:3.11
 
 # Set the working directory in the container
 WORKDIR /app

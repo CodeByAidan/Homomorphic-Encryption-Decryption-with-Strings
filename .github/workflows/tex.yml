@@ -26,7 +26,11 @@ jobs:
       - name: Add and commit PDF to repository
         run: |
           git add Paper.pdf
-          git commit -m "Add compiled PDF"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add compiled PDF"
+          fi
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:

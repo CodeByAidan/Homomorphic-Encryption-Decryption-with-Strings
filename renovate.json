@@ -1,14 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "platform": "github",
   "automerge": true,
   "ignoreTests": true,
   "platformAutomerge": true,
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "bump", "digest"],
-      "platform": "github",
       "automerge": true,
       "ignoreTests": true,
       "platformAutomerge": true,

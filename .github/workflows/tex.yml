@@ -19,6 +19,8 @@ jobs:
         run: |
           git config user.name "Aidans Tex Bot"
           git config user.email "aidan@google.com"
+      - name: Pull changes from remote
+        run: git pull --rebase
       - name: Add and commit PDF to repository
         run: |
           git add Paper.pdf
